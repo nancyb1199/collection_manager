@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+<h3><ul>Add a new recipe I have tried:</h3>
+  <form action="." method="POST">
+    <p>
+      <label for="recipeTitle">Recipe Title:</label>
+      <input type="text" id="recipeTitle" name="recipeTitle" required />
+    </p>
+
+    <p>
+      <label for="tasty">Was this recipe tasty?</label>
+      <input type="checkbox" id="tasty" name="tasty" value=true/>
+    </p>
+
+    <p>
+      <label for="pageNumber">pageNumber:</label>
+      <input type="number" id="pageNumber" name="pageNumber" />
+    </p>
+    <p>
+      <button type="submit">Add this recipe</button>
+    </p>
+  </form>

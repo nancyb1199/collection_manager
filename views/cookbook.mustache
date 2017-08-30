@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+{{#cookbooks}}
+<h3><ul>Recipes I have tried:</h3>
+  <li>
+    Recipe Title: {{triedRecipe.recipeTitle}}
+  </li>
+  <li>
+    Tasty?{{triedRecipe.tasty}}
+  </li>
+  <li>
+    Page Number: {{triedRecipe.pageNumber}}
+  </li>
+</ul>
+<p>
+  <a href="/{{_id}}/new_recipe/" class="button">Add a new recipe I've tried</a>
+</p>
+
+{{/cookbooks}}

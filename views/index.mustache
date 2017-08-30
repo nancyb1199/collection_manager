@@ -1,0 +1,27 @@
+<h1>My Cookbooks</h1>
+
+  <p>
+    <a href="/new">Add new cookbook</a>
+  </p>
+{{#cookbooks}}
+  <div class="cookbook">
+    <h3><a href="/{{_id}}">
+      {{title}}</a></h3>
+    <p>Author: {{author}}</p>
+    <p>Price: ${{price}}</p>
+    {{#triedRecipe}}
+    <ul> Recipes Tried:
+      <li>
+        Recipe Title: {{recipeTitle}}
+      </li>
+      <li>
+        Tasty? {{tasty}}
+      </li>
+      <li>
+        Page Number: {{pageNumber}}
+      </li>
+    </ul>
+    {{/triedRecipe}}
+
+  </div>
+{{/cookbooks}}
