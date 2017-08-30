@@ -1,0 +1,29 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
+  <link rel="stylesheet" type="text/css" href="../../css/styles.css" />
+  <title>Edit a Cookbook</title>
+</head>
+<body>
+<h1>Edit cookbook</h1>
+{{#cookbooks}}
+<form action="." method="POST">
+  <p>
+    <label for="title">Cookbook Title:</label>
+    <input type="text" id="title" name="title" value="{{title}}" required />
+  </p>
+
+  <p>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" value="{{author}}"/>
+  </p>
+
+  <p>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" value={{price}} />
+  </p>
+  <p>
+    <button type="submit">Update Cookbook details</button>
+  </p>
+</form>
+{{/cookbooks}}
+</body>

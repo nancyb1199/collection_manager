@@ -1,18 +1,42 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta20/shoelace.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+  <title>Cookbook</title>
+</head>
+<body>
+
 <h1>{{title}}</h1>
+
 {{#cookbooks}}
-<h3><ul>Recipes I have tried:</h3>
-  <li>
-    Recipe Title: {{triedRecipe.recipeTitle}}
-  </li>
-  <li>
-    Tasty?{{triedRecipe.tasty}}
-  </li>
-  <li>
-    Page Number: {{triedRecipe.pageNumber}}
-  </li>
-</ul>
+
+<div class="cookbook">
+  <h3><a href="/{{_id}}" >
+    {{title}}</a></h3>
+  <p>Author: {{author}}</p>
+  <p>Price: ${{price}}</p>
+  {{#triedRecipe}}
+    <b><ul>Recipes I have tried:</b>
+      <li>
+        Recipe Title: {{recipeTitle}}
+      </li>
+      <li>
+        Tasty?{{tasty}}
+      </li>
+      <li>
+        Page Number: {{pageNumber}}
+      </li>
+  </ul>
+{{/triedRecipe}}
 <p>
   <a href="/{{_id}}/new_recipe/" class="button">Add a new recipe I've tried</a>
 </p>
-
+<p>
+<a href="/{{_id}}/edit/" class="button">Edit Cookbook Details</a>
+</p>
+<p>
+<form action="/{{_id}}/delete/" method="POST">
+  <button type="submit" class="button">Delete this Cookbook</button>
+</form>
+</p>
 {{/cookbooks}}
+</body>

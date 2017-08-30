@@ -4,15 +4,15 @@ const mustacheExpress = require('mustache-express');
 const Mustache = require('mustache');
 var bodyParser = require('body-parser')
 
-const mongoURL = 'mongodb://localhost:27017/newdb';
+const mongoURL = 'mongodb://localhost:27017/cookbooks';
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-mongoose.connect('mongodb://localhost:27017/cookbooks');
+mongoose.connect(mongoURL, {useMongoClient: true});
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
@@ -53,6 +53,26 @@ app.post('/:id/new_recipe', function(req,res) {
   });
 });
 
+app.get('/:id/edit', function(req,res) {
+  CookBook.findOne({_id: req.params.id}).then(function (cookbooks) {
+  res.render('edit_cookbook', {cookbooks: cookbooks});
+  });
+});
+
+app.post('/:id/edit', function(req,res) {
+  CookBook.findOneAndUpdate({_id: req.params.id}, req.body).then(function (cookbooks) {
+  console.log(req.body);
+  // CookBook.update(req.body).then(function (cookbooks) {
+    res.redirect('/');
+
+  });
+});
+
+app.post('/:id/delete', function(req,res) {
+  CookBook.findOneAndRemove({_id: req.params.id}).then(function (cookbooks) {
+    res.redirect('/');
+  });
+});
 
 app.get('/', function(req, res){
     CookBook.find().then(function (cookbooks) {

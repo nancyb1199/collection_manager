@@ -9,7 +9,7 @@ let cookBookSchema = new Schema({
     tasty: Boolean,
     recipeTitle: {type: String, required: true},
     pageNumber: Number
-  }],
+  }]
 });
 
 const CookBook = mongoose.model('CookBook', cookBookSchema);
