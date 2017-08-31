@@ -19,11 +19,28 @@
 
   <p>
     <label for="price">Price:</label>
-    <input type="number" id="price" name="price" value={{price}} />
+    <input type="number" id="price" name="price" value="{{price}}" />
   </p>
+  {{#triedRecipe}}
   <p>
-    <button type="submit">Update Cookbook details</button>
+    <label for="recipeTitle">Recipe Title:</label>
+    <input type="text" id="recipeTitle" name="recipeTitle" required value="{{recipeTitle}}" />
+  </p>
+
+  <p>
+    <label for="tasty">Was this recipe tasty?</label>
+    <input type="checkbox" id="tasty" name="tasty" value={{tasty}} />
+  </p>
+
+  <p>
+    <label for="pageNumber">pageNumber:</label>
+    <input type="number" id="pageNumber" name="pageNumber" value="{{pageNumber}}" />
+  </p>
+  {{/triedRecipe}}
+  <p>
+    <button type="submit">Update Cookbook Details</button>
   </p>
 </form>
 {{/cookbooks}}
+
 </body>
